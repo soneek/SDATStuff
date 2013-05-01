@@ -332,6 +332,10 @@ void GetTime(const std::string &filename, const SDAT *sdat, const SSEQ *sseq, Ta
 	player->maxSeconds = 6000;
 	// Get the time, without "playing" the notes
 	Time length = GetTime(player.get(), 20, numberOfLoops);
+	// Get the loop start and end positions
+	Time lonelength = GetTime(player.get(), 20, 1);
+	Time ltwolengths = GetTime(player.get(), 20, 2);
+	double lstart = lonelength.time - (ltwolengths.time - lonelength.time);
 	// If the length was for a one-shot song, get the time again, this time "playing" the notes
 	bool gotLength = false;
 	if (static_cast<int>(length.time) != -1 && length.type == END)
@@ -353,8 +357,13 @@ void GetTime(const std::string &filename, const SDAT *sdat, const SSEQ *sseq, Ta
 	}
 	if (static_cast<int>(length.time) != -1)
 	{
-		if (length.type == LOOP)
+		if (length.type == LOOP) {
 			tags["fade"] = stringify(fadeLoop);
+			std::string lsString = SecondsToStringMs(lstart);
+			std::string leString = SecondsToStringMs(lonelength.time);
+			tags["loopstart_ms"] = lsString;
+			tags["loopend_ms"] = leString;
+		}
 		else
 			tags["fade"] = stringify(fadeOneShot);
 		if (!static_cast<int>(length.time))

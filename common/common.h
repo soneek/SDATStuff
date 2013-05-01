@@ -597,6 +597,15 @@ inline std::string SecondsToString(double seconds)
 	return time;
 }
 
+// Convert a time from seconds to milliseconds, and then into a human readable string
+inline std::string SecondsToStringMs(double seconds)
+{
+	double milliseconds = floor(seconds * 1000 + 0.5);
+	std::string time;
+	time += stringify(milliseconds);
+	return time;
+}
+
 // The following functions are for the options parser
 
 inline option::ArgStatus RequireArgument(const option::Option &opt, bool msg)
