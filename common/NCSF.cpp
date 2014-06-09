@@ -330,11 +330,17 @@ void GetTime(const std::string &filename, const SDAT *sdat, const SSEQ *sseq, Ta
 	auto player = std::unique_ptr<TimerPlayer>(new TimerPlayer());
 	player->Setup(sseq);
 	player->maxSeconds = 6000;
+	auto looponeplayer = std::unique_ptr<TimerPlayer>(new TimerPlayer());
+	looponeplayer->Setup(sseq);
+	looponeplayer->maxSeconds = 6000;
+	auto looptwoplayer = std::unique_ptr<TimerPlayer>(new TimerPlayer());
+	looptwoplayer->Setup(sseq);
+	looptwoplayer->maxSeconds = 6000;
 	// Get the time, without "playing" the notes
 	Time length = GetTime(player.get(), 20, numberOfLoops);
 	// Get the loop start and end positions
-	Time lonelength = GetTime(player.get(), 20, 1);
-	Time ltwolengths = GetTime(player.get(), 20, 2);
+	Time lonelength = GetTime(looponeplayer.get(), 20, 1);
+	Time ltwolengths = GetTime(looptwoplayer.get(), 20, 2);
 	double lstart = lonelength.time - (ltwolengths.time - lonelength.time);
 	// If the length was for a one-shot song, get the time again, this time "playing" the notes
 	bool gotLength = false;

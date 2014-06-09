@@ -40,7 +40,7 @@ void SSEQ::Read(PseudoReadFile &file)
 	header.Read(file);
 	try
 	{
-		header.Verify("SSEQ", 0x0100FEFF);
+		header.Verify("RSEQ", 0x0100FFFE);
 	}
 	catch (const std::exception &)
 	{
@@ -52,7 +52,7 @@ void SSEQ::Read(PseudoReadFile &file)
 	int8_t type[4];
 	file.ReadLE(type);
 	if (!VerifyHeader(type, "DATA"))
-		throw std::runtime_error("SSEQ DATA structure invalid");
+		throw std::runtime_error("RSEQ DATA structure invalid");
 	uint32_t size = file.ReadLE<uint32_t>();
 	uint32_t dataOffset = file.ReadLE<uint32_t>();
 	this->data.resize(size - 12, 0);

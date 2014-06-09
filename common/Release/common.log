@@ -1,0 +1,32 @@
+﻿Build started 5/6/2013 4:28:57 PM.
+     1>Project "C:\Users\Owner\NCSFStuffSrc\common\common.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Touching "Release\common.unsuccessfulbuild".
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /IZLIBFIXME\include /Zi /nologo /W4 /WX- /O2 /Oi /Oy- /GL /D WIN32 /D _LIB /D NDEBUG /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc100.pdb" /Gd /TP /wd4127 /wd4201 /wd4244 /wd4245 /wd4505 /wd4512 /wd4701 /wd4706 /analyze- /errorReport:prompt NCSF.cpp
+         NCSF.cpp
+       Lib:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\Lib.exe /OUT:"C:\Users\Owner\NCSFStuffSrc\Release\common.lib" /NOLOGO /LTCG Release\FATSection.obj
+         Release\INFOEntry.obj
+         Release\INFOSection.obj
+         Release\NCSF.obj
+         Release\NDSStdHeader.obj
+         Release\SBNK.obj
+         Release\SDAT.obj
+         Release\SSEQ.obj
+         Release\SWAR.obj
+         Release\SWAV.obj
+         Release\SYMBSection.obj
+         Release\TagList.obj
+         Release\TimerChannel.obj
+         Release\TimerPlayer.obj
+         Release\TimerTrack.obj
+         common.vcxproj -> C:\Users\Owner\NCSFStuffSrc\Release\common.lib
+       FinalizeBuildStatus:
+         Deleting file "Release\common.unsuccessfulbuild".
+         Touching "Release\common.lastbuildstate".
+     1>Done Building Project "C:\Users\Owner\NCSFStuffSrc\common\common.vcxproj" (build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:08.75
